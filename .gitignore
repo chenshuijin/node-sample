@@ -8,6 +8,12 @@ bin-release/
 # Other files and folders
 .settings/
 
+# emacs
+*#
+
+# vim
+*~
+
 # Executables
 *.swf
 *.air
