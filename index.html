@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>block chain restful api</title>
+    <script src="/vue.min.js"></script>
+    <script src="/vue-resource.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <p>api报文：</p>
+      <textarea v-model="message" cols="100" rows="15">
+      </textarea></br>
+      <button v-on:click="query">query</button>
+      <button v-on:click="invoke">invoke</button></br></br>
+      <p>api 返回：</p>
+      <div v-show="showreqresult">
+	<p>{{reqResult}}</p>
+      </div>
+      <div v-show="waiting">
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<img src="/loading.jpg"/>
+	<p>waiting for the host to response...</p>
+      </div>
+    </div>
+    <script src="/app.js"></script>
+    <script>app.$mount('#app')</script>
+  </body>
+</html>

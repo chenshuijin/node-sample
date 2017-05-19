@@ -12,25 +12,14 @@ var upload = multer();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-//app.use(express.static('public'));
+app.use(express.static(__dirname+'/public'));
 
 app.get('/', function (req, res) {
-    res.send('Service work...');
+    res.sendFile( __dirname + "/" + "index.html" );
 });
 
 app.post('/', upload.array(), function (req, res) {
-    res.send('Service work...');
-});
-
-app.post('/exec', upload.array(), function (req, res) {
-    res.writeHead(200, {'Content-Type': 'application/json'});
-    let data = "{}";
-    let result = JSON.parse(data);
-    console.log('----------------json parse----------------');
-    console.log(result);
-    console.log('----------------response to front end----------------');
-    console.log(JSON.stringify(result).replace('eee',''));
-    res.end(JSON.stringify(result));
+    res.send('server work...');
 });
 
 //  /list_user 页面 GET 请求
@@ -46,7 +35,7 @@ app.get('/ab*cd', function(req, res) {
 });
 
 module.exports.start = ()=> {
-    var server = app.listen(18240, function () {
+    var server = app.listen(18241, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 	console.log("service start on http://%s:%s", host, port);
