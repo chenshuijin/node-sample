@@ -1,0 +1,35 @@
+.menu {
+    background: #a2a2a2 no-repeat center center;
+}
+
+.app {
+    margin: 0 0 0 0;
+}
+
+.title {
+    height: 50px;
+    margin: 0 0 0 0;
+    background: black;
+}
+
+.img {
+    height: 100%;
+    margin: 0 0 0 0;
+}
+
+.title-name{
+    margin:0 0 0 40%;
+    color:white;
+    font-weight:900;
+    font-size:40px;
+    text-align:center;
+    position: relative;
+}
+
+.list-items{
+
+}
+
+.tab-dec{
+    margin: auto;
+}
