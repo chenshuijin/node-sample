@@ -18,6 +18,10 @@ app.get('/', function (req, res) {
     res.sendFile( __dirname + "/" + "index.html" );
 });
 
+app.get('/test', function (req, res) {
+    res.sendFile( __dirname + "/" + "public/html/test.html" );
+});
+
 app.post('/', upload.array(), function (req, res) {
     res.send('server work...');
 });

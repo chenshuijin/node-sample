@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>this is title</title>
+    <script src="/vue.min.js"></script>
+    <script src="/vue-resource.min.js"></script>
+    <style>
+      body{
+      text-align:center;
+      }
+      .div1
+      {
+      width:100px;
+      height:100px;
+      background-color:red;
+      border:1px solid black;
+      }
+      .middle{
+      position:absolute;
+      top: 50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      }
+      .up{
+      transform: translate(-50%, calc(-1 * (100% + 50px)));
+      }
+      .div2
+      {
+      background-color:blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>居中，平移，calc函数的运算符前后需要空格，否则运算无效</p>
+    <div class="div1 middle">Hello. This is a DIV 1.</div>
+    <div class="div2 middle up">Hello. This is a DIV element 2.</div>
+  </body>
+</html>
