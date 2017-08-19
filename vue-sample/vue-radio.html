@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <template v-for="(item, index) in items">
+        <input type="radio" value="yes" v-model="item.select">
+	<label>yes</label>
+	<input type="radio" value="no" v-model="item.select">
+	<label>no</label>
+	<span>选中值为{{item.name}}: {{ item.select }}</span>
+	<br>
+    </template>
+  <br>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+     picked : ["yes"],
+     items : [
+        { id: 1, name: 'item1', value: 'question 1' , select : 'yes' },
+        { id: 2, name: 'item2', value: 'question 2' , select : 'yes' },
+        { id: 3, name: 'item3', value: 'question 3' , select : 'yes' },
+        { id: 4, name: 'item4', value: 'question 4' , select : 'yes' }
+     ]
+  }
+})
+</script>
+</body>
+</html>
