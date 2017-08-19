@@ -1,2 +1,2 @@
-# node-sample
-samples of node
+# express sample
+the sample for express
