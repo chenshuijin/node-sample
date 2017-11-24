@@ -1,33 +1,37 @@
 (function() {
   "use strict";
 
-  var app = new Vue({
-    el: "#app",
+  var crypto_vue = new Vue({
+    el: "#crypto_vue",
     data: {
-      name: "Vue.js",
+      name: "crypto.js",
       message: "",
+      pk: "",
+      sk: "",
       reqResult: "",
+      signature: "",
       showreqresult: true,
       waiting: false
     },
     methods: {
-      query: function() {
+      sign: function() {
         try {
-          JSON.parse(this.message);
+          console.log("message:", this.message);
+          let keyPair = nacl.sign.keyPair();
+          console.log("pk:", keyPair);
+          this.pk = nacl.util.encodeBase64(keyPair.publicKey);
+          this.sk = nacl.util.encodeBase64(keyPair.secretKey);
+          this.signature = nacl.util.encodeBase64(
+            nacl.sign.detached(
+              nacl.util.decodeUTF8(this.message),
+              keyPair.secretKey
+            )
+          );
         } catch (err) {
+          console.log("err:", err);
           this.reqResult = err + "";
           return;
         }
-        this.callapi(this, "/execChaincode", JSON.parse(this.message));
-      },
-      invoke: function() {
-        try {
-          JSON.parse(this.message);
-        } catch (err) {
-          this.reqResult = err + "";
-          return;
-        }
-        this.callapi(this, "/invokeChaincode", JSON.parse(this.message));
       },
       callapi: (n, url, msg) => {
         n.exchange(n);
@@ -56,8 +60,9 @@
       }
     }
   });
+
   if (typeof module !== "undefined" && module.exports) {
   } else {
-    this.app = app;
+    this.crypto_vue = crypto_vue;
   }
 }.call(this));
