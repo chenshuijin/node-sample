@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>this is title</title>
+    <script src="/vue.min.js"></script>
+    <script src="/vue-resource.min.js"></script>
+    <style>
+      body{
+      text-align:center;
+      }
+      .div1
+      {
+      width:100px;
+      height:100px;
+      background-color:red;
+      border:1px solid black;
+      }
+      .middle{
+      position:absolute;
+      top: 50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      }
+      .up{
+      transform: translate(-50%, calc(-1 * (100% + 50px)));
+      }
+      .div2
+      {
+      background-color:blue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- POST test  -->
+    <form action="/postform" method="post"  id="foo"  >
+      <input type="text" name="username">
+      <input type="password" name="password">
+      <input type="submit">
+    </form>
+  </body>
+</html>
