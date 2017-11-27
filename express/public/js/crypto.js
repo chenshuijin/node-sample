@@ -17,14 +17,16 @@
       sign: function() {
         try {
           console.log("message:", this.message);
-          let keyPair = nacl.sign.keyPair();
-          console.log("pk:", keyPair);
-          this.pk = nacl.util.encodeBase64(keyPair.publicKey);
-          this.sk = nacl.util.encodeBase64(keyPair.secretKey);
+          if (this.keyPair === undefined) {
+            this.keyPair = nacl.sign.keyPair();
+          }
+          console.log("pk:", this.keyPair);
+          this.pk = nacl.util.encodeBase64(this.keyPair.publicKey);
+          this.sk = nacl.util.encodeBase64(this.keyPair.secretKey);
           this.signature = nacl.util.encodeBase64(
             nacl.sign.detached(
               nacl.util.decodeUTF8(this.message),
-              keyPair.secretKey
+              this.keyPair.secretKey
             )
           );
         } catch (err) {
