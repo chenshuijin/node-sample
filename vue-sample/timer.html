@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>timer sample</title>
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-on:click="start">start</button>
+      <p>{{ isStop }}</p>
+      <p>time: {{ otime }}</p>
+
+    </div>
+
+    <script>
+      new Vue({
+        el: '#app',
+        data: {
+          picked : ["yes"],
+          otime:"",
+          isStop: false,
+          timer: null
+        },
+        methods: {
+        start: function() {
+          this.isStop = !this.isStop;
+          if (!this.isStop){
+            console.log('stop');
+            clearInterval(this.timer);
+            return;
+          }
+          clearInterval(this.timer);
+          this.timer = setInterval(this.counter, 1000);
+      },
+      counter: function() {
+            var odate = new Date();
+            this.otime = "time:"+odate.getHours()+":"+odate.getMinutes()+":"+odate.getSeconds();
+      }
+      }
+      })
+    </script>
+  </body>
+</html>
